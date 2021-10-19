@@ -4,9 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/src/style.css" />
     <title>To! Do!</title>
   </head>
   <body>
-    <script src="main.js"></script>
+    <header>
+      <div class="menuButton">menu</div>
+      <div class="addButton">add</div>
+    </header>
+    <main>
+      <temp>
+        <div class="formContainer">
+          <form name="bookForm">
+            <label for="title">Title:</label><br />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value=""
+              required
+            /><br />
+            <label for="author">Description:</label><br />
+            <input
+              type="text"
+              id="author"
+              name="author"
+              value=""
+              required
+            /><br />
+            <input type="button" value="Submit" id="submit" />
+          </form>
+        </div>
+      </temp>
+      <div class="mainContainer">
+        <div class="menuContainer">Projects</div>
+        <div class="projectContainer">
+          <div class="projectTitle">Title</div>
+          <div class="taskContainer">
+            <div class="task">asdf</div>
+            <div class="task">asdf</div>
+            <div class="task">asdf</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
   </body>
 </html>
