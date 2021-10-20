@@ -33,6 +33,10 @@ header {
   cursor: pointer;
 }
 
+.menuHide {
+  display: none;
+}
+
 .menuContainer {
   background-color: #ececec;
   height: calc(100vh - 45px);
@@ -41,6 +45,18 @@ header {
 
 .addButton {
   cursor: pointer;
+}
+
+.formContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: lavender;
+}
+
+.formHide {
+  display: none;
 }
 
 .mainContainer {
@@ -56,8 +72,6 @@ header {
 }
 
 .taskContainer {
-}
-
-.taskContainer {
   display: flex;
+  flex-direction: column;
 }
