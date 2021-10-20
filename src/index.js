@@ -41,14 +41,21 @@ const revealTaskAdd = (function () {
 const domControl = (function () {
   const taskContainer = document.querySelector(".taskContainer");
   const menuConainer = document.querySelector(".menuContainer");
+  const defualtProject = document.querySelector(".defaultProject");
+  let num = 0;
 
   const display = () => {
-    for (let task in applicationLogic.myTasks) {
+    for (let task in applicationLogic.getCurrentProject()) {
       let p = document.createElement("p");
       p.classList.add("task");
-      p.innerHTML = applicationLogic.myTasks[task].title;
+      p.innerHTML = applicationLogic.getCurrentProject()[task].title;
       taskContainer.appendChild(p);
     }
+  };
+
+  const clearDisplay = () => {
+    let tasks = document.querySelectorAll(".task");
+    tasks.forEach((x) => x.remove());
   };
 
   const addTask = () => {
@@ -56,16 +63,31 @@ const domControl = (function () {
     p.classList.add("task");
     p.innerHTML = applicationLogic.getTitle();
     taskContainer.appendChild(p);
+    console.log(applicationLogic.myArrays);
   };
 
   const addProject = () => {
+    clearDisplay();
+    applicationLogic.addNewProject();
     let h3 = document.createElement("h3");
     h3.classList.add("projectTitle");
-    h3.innerHTML = "New Project";
+    num++;
+    h3.id = num;
+    h3.innerHTML = applicationLogic.getNewProjectName();
     menuConainer.appendChild(h3);
+    applicationLogic.changeCurrentProject(num);
+    h3.addEventListener("click", switchProjects);
   };
 
-  return { display, addTask, addProject };
+  const switchProjects = (e) => {
+    clearDisplay();
+    applicationLogic.changeCurrentProject(e.target.id);
+    display();
+  };
+
+  defualtProject.addEventListener("click", switchProjects);
+
+  return { display, addTask, addProject, switchProjects, defualtProject };
 })();
 
 const taskAddReset = (function () {
@@ -96,4 +118,3 @@ const projectAddReset = (function () {
 })();
 
 domControl.display();
-console.log(applicationLogic.currentProject);

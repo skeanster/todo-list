@@ -3,14 +3,15 @@ import { compareAsc, format } from "date-fns";
 
 export const applicationLogic = (function () {
   const submit = document.querySelector("#taskSubmit");
-  let id = -1;
 
-  let myTasks = [
-    { title: "task1", description: "description1" },
-    { title: "task2", description: "description2" },
+  let myArrays = [
+    [
+      { title: "task1", description: "description1" },
+      { title: "task2", description: "description2" },
+    ],
   ];
 
-  let currentProject = myTasks;
+  let currentProject = myArrays[0];
 
   const getTitle = () => {
     return document.querySelector("#title").value;
@@ -28,10 +29,34 @@ export const applicationLogic = (function () {
 
   const addTask = () => {
     currentProject.push(new Task(getTitle(), getDescription()));
-    console.log(currentProject);
   };
 
   submit.addEventListener("click", addTask);
 
-  return { myTasks, getTitle, getDescription, currentProject };
+  const changeCurrentProject = (num) => {
+    currentProject = myArrays[num];
+  };
+
+  const getCurrentProject = () => {
+    return currentProject;
+  };
+
+  const getNewProjectName = () => {
+    return document.querySelector("#projectName").value;
+  };
+
+  const addNewProject = () => {
+    myArrays.push(new Array());
+  };
+
+  return {
+    myArrays,
+    getTitle,
+    getDescription,
+    currentProject,
+    changeCurrentProject,
+    addNewProject,
+    getNewProjectName,
+    getCurrentProject,
+  };
 })();

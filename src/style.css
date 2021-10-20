@@ -52,6 +52,10 @@ header {
   justify-content: space-around;
 }
 
+.projectTitle {
+  cursor: pointer;
+}
+
 .addProjectButton {
   border: 2px solid red;
   border-radius: 10px;
