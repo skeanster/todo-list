@@ -101,3 +101,14 @@ header {
   display: flex;
   flex-direction: column;
 }
+
+.task {
+  cursor: pointer;
+}
+
+.taskDescription {
+}
+
+.descriptionHide {
+  display: none;
+}

@@ -62,6 +62,11 @@ const domControl = (function () {
       p.classList.add("task");
       p.innerHTML = applicationLogic.getCurrentProject()[i].title;
       taskContainer.appendChild(p);
+      p.addEventListener("click", revealDescription);
+      let p2 = document.createElement("p");
+      p2.classList.add("descriptionHide");
+      p2.innerHTML = applicationLogic.getCurrentProject()[i].description;
+      p.appendChild(p2);
     }
   };
 
@@ -75,6 +80,11 @@ const domControl = (function () {
     p.classList.add("task");
     p.innerHTML = applicationLogic.getTitle();
     taskContainer.appendChild(p);
+    p.addEventListener("click", revealDescription);
+    let p2 = document.createElement("p");
+    p2.classList.add("descriptionHide");
+    p2.innerHTML = applicationLogic.getDescription();
+    p.appendChild(p2);
     console.log(applicationLogic.myArrays);
   };
 
@@ -101,6 +111,10 @@ const domControl = (function () {
     display();
   };
 
+  const revealDescription = (e) => {
+    e.target.children[0].classList.toggle("descriptionHide");
+  };
+
   return {
     display,
     addTask,
@@ -108,6 +122,7 @@ const domControl = (function () {
     switchProjects,
     defualtProject,
     initialDisplay,
+    revealDescription,
   };
 })();
 
