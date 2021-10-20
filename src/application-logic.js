@@ -63,6 +63,10 @@ export const applicationLogic = (function () {
     currentProject.push(new Task(getTitle(), getDescription(), getDate()));
   };
 
+  const deleteTask = (index) => {
+    currentProject.splice(index, 1);
+  };
+
   const changeCurrentProject = (num) => {
     currentProject = myArrays[num];
   };
@@ -95,5 +99,6 @@ export const applicationLogic = (function () {
     getCurrentProject,
     addNewProjectName,
     addTask,
+    deleteTask,
   };
 })();

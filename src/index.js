@@ -59,6 +59,7 @@ const domControl = (function () {
   const display = () => {
     for (let i = 1; i < applicationLogic.getCurrentProject().length; i++) {
       let p = document.createElement("p");
+      p.id = i;
       p.classList.add("task");
       p.innerHTML = applicationLogic.getCurrentProject()[i].title;
       taskContainer.appendChild(p);
@@ -71,6 +72,11 @@ const domControl = (function () {
       p3.classList.add("taskDate");
       p3.innerHTML = applicationLogic.getCurrentProject()[i].date;
       p.appendChild(p3);
+      let p4 = document.createElement("p");
+      p4.classList.add("completeMarker");
+      p4.innerHTML = "&times";
+      p.appendChild(p4);
+      p4.addEventListener("click", deleteTask);
     }
   };
 
@@ -81,6 +87,13 @@ const domControl = (function () {
 
   const addTask = () => {
     applicationLogic.addTask();
+    clearDisplay();
+    display();
+    console.log(applicationLogic.myArrays);
+  };
+
+  const deleteTask = (e) => {
+    applicationLogic.deleteTask(e.target.parentNode.id);
     clearDisplay();
     display();
     console.log(applicationLogic.myArrays);
