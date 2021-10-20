@@ -44,11 +44,23 @@ const domControl = (function () {
   const defualtProject = document.querySelector(".defaultProject");
   let num = 0;
 
+  const initialDisplay = () => {
+    for (let i = 0; i < applicationLogic.myArrays.length; i++) {
+      let h3 = document.createElement("h3");
+      h3.classList.add("projectTitle");
+      h3.id = num;
+      num++;
+      h3.innerHTML = applicationLogic.myArrays[i][0].name;
+      h3.addEventListener("click", switchProjects);
+      menuConainer.appendChild(h3);
+    }
+  };
+
   const display = () => {
-    for (let task in applicationLogic.getCurrentProject()) {
+    for (let i = 1; i < applicationLogic.getCurrentProject().length; i++) {
       let p = document.createElement("p");
       p.classList.add("task");
-      p.innerHTML = applicationLogic.getCurrentProject()[task].title;
+      p.innerHTML = applicationLogic.getCurrentProject()[i].title;
       taskContainer.appendChild(p);
     }
   };
@@ -68,15 +80,18 @@ const domControl = (function () {
 
   const addProject = () => {
     clearDisplay();
-    applicationLogic.addNewProject();
     let h3 = document.createElement("h3");
     h3.classList.add("projectTitle");
-    num++;
     h3.id = num;
     h3.innerHTML = applicationLogic.getNewProjectName();
     menuConainer.appendChild(h3);
+    applicationLogic.addNewProject();
     applicationLogic.changeCurrentProject(num);
+    applicationLogic.addNewProjectName(num);
+    document.querySelector(".mainTitle").innerHTML =
+      applicationLogic.getCurrentProject()[0].name;
     h3.addEventListener("click", switchProjects);
+    num++;
   };
 
   const switchProjects = (e) => {
@@ -86,9 +101,14 @@ const domControl = (function () {
     display();
   };
 
-  defualtProject.addEventListener("click", switchProjects);
-
-  return { display, addTask, addProject, switchProjects, defualtProject };
+  return {
+    display,
+    addTask,
+    addProject,
+    switchProjects,
+    defualtProject,
+    initialDisplay,
+  };
 })();
 
 const taskAddReset = (function () {
@@ -118,4 +138,5 @@ const projectAddReset = (function () {
   return {};
 })();
 
+domControl.initialDisplay();
 domControl.display();

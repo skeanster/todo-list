@@ -6,8 +6,30 @@ export const applicationLogic = (function () {
 
   let myArrays = [
     [
+      { name: "Home" },
       { title: "task1", description: "description1" },
       { title: "task2", description: "description2" },
+    ],
+
+    [
+      { name: "New Project 1" },
+      { title: "1task1", description: "description1" },
+      { title: "2task", description: "description2" },
+    ],
+    [
+      { name: "New Project 2" },
+      { title: "1task2", description: "description1" },
+      { title: "2task", description: "description2" },
+    ],
+    [
+      { name: "New Project 3" },
+      { title: "1task3", description: "description1" },
+      { title: "2task", description: "description2" },
+    ],
+    [
+      { name: "New Project 4" },
+      { title: "1task4", description: "description1" },
+      { title: "2task", description: "description2" },
     ],
   ];
 
@@ -24,6 +46,12 @@ export const applicationLogic = (function () {
     constructor(title, description) {
       this.title = title;
       this.description = description;
+    }
+  };
+
+  let Project = class {
+    constructor(name) {
+      this.name = name;
     }
   };
 
@@ -49,6 +77,11 @@ export const applicationLogic = (function () {
     myArrays.push(new Array());
   };
 
+  const addNewProjectName = () => {
+    console.log(getCurrentProject());
+    getCurrentProject().push(new Project(getNewProjectName()));
+  };
+
   return {
     myArrays,
     getTitle,
@@ -58,5 +91,6 @@ export const applicationLogic = (function () {
     addNewProject,
     getNewProjectName,
     getCurrentProject,
+    addNewProjectName,
   };
 })();
