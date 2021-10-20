@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="main.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="/src/style.css" />
     <title>To! Do!</title>
   </head>
   <body>
@@ -14,38 +13,26 @@
       <div class="addButton">add</div>
     </header>
     <main>
-      <temp>
-        <div class="formContainer">
-          <form name="bookForm">
-            <label for="title">Title:</label><br />
-            <input
-              type="text"
-              id="title"
-              name="title"
-              value=""
-              required
-            /><br />
-            <label for="author">Description:</label><br />
-            <input
-              type="text"
-              id="author"
-              name="author"
-              value=""
-              required
-            /><br />
-            <input type="button" value="Submit" id="submit" />
-          </form>
-        </div>
-      </temp>
+      <div class="formContainer formHide">
+        <form name="bookForm">
+          <label for="title">Title:</label><br />
+          <input type="text" id="title" name="title" value="" required /><br />
+          <label for="description">Description:</label><br />
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value=""
+            required
+          /><br />
+          <input type="button" value="Submit" id="submit" />
+        </form>
+      </div>
       <div class="mainContainer">
         <div class="menuContainer">Projects</div>
         <div class="projectContainer">
-          <div class="projectTitle">Title</div>
-          <div class="taskContainer">
-            <div class="task">asdf</div>
-            <div class="task">asdf</div>
-            <div class="task">asdf</div>
-          </div>
+          <h1 class="projectTitle">Title</h1>
+          <div class="taskContainer"></div>
         </div>
       </div>
     </main>
