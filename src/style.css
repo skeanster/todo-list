@@ -50,6 +50,7 @@ header {
 .menuHeader {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .projectTitle {
@@ -63,6 +64,8 @@ header {
   width: 33.5px;
   text-align: center;
   cursor: pointer;
+  margin: 0;
+  margin-left: 5px;
 }
 
 .newProjectContainer {
@@ -97,6 +100,10 @@ header {
   flex-direction: column;
 }
 
+.mainTitle {
+  padding-left: 10%;
+}
+
 .taskContainer {
   display: flex;
   flex-direction: column;
@@ -104,6 +111,15 @@ header {
 
 .task {
   cursor: pointer;
+  width: 70vw;
+  position: relative;
+  padding-left: 15%;
+}
+
+.taskDate {
+  position: absolute;
+  right: 0px;
+  top: -16px;
 }
 
 .taskDescription {

@@ -7,29 +7,29 @@ export const applicationLogic = (function () {
   let myArrays = [
     [
       { name: "Home" },
-      { title: "task1", description: "description1" },
-      { title: "task2", description: "description2" },
+      { title: "task1", description: "description1", date: "2021-10-27" },
+      { title: "task2", description: "description2", date: "2021-10-27" },
     ],
 
     [
       { name: "New Project 1" },
-      { title: "1task1", description: "description1" },
-      { title: "2task", description: "description2" },
+      { title: "1task1", description: "description1", date: "2021-10-27" },
+      { title: "2task", description: "description2", date: "2021-10-27" },
     ],
     [
       { name: "New Project 2" },
-      { title: "1task2", description: "description1" },
-      { title: "2task", description: "description2" },
+      { title: "1task2", description: "description1", date: "2021-10-27" },
+      { title: "2task", description: "description2", date: "2021-10-27" },
     ],
     [
       { name: "New Project 3" },
-      { title: "1task3", description: "description1" },
-      { title: "2task", description: "description2" },
+      { title: "1task3", description: "description1", date: "2021-10-27" },
+      { title: "2task", description: "description2", date: "2021-10-27" },
     ],
     [
       { name: "New Project 4" },
-      { title: "1task4", description: "description1" },
-      { title: "2task", description: "description2" },
+      { title: "1task4", description: "description1", date: "2021-10-27" },
+      { title: "2task", description: "description2", date: "2021-10-27" },
     ],
   ];
 
@@ -41,11 +41,15 @@ export const applicationLogic = (function () {
   const getDescription = () => {
     return document.querySelector("#description").value;
   };
+  const getDate = () => {
+    return document.querySelector(".input-due-date").value;
+  };
 
   let Task = class {
-    constructor(title, description) {
+    constructor(title, description, date) {
       this.title = title;
       this.description = description;
+      this.date = date;
     }
   };
 
@@ -56,10 +60,8 @@ export const applicationLogic = (function () {
   };
 
   const addTask = () => {
-    currentProject.push(new Task(getTitle(), getDescription()));
+    currentProject.push(new Task(getTitle(), getDescription(), getDate()));
   };
-
-  submit.addEventListener("click", addTask);
 
   const changeCurrentProject = (num) => {
     currentProject = myArrays[num];
@@ -92,5 +94,6 @@ export const applicationLogic = (function () {
     getNewProjectName,
     getCurrentProject,
     addNewProjectName,
+    addTask,
   };
 })();

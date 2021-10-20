@@ -67,6 +67,10 @@ const domControl = (function () {
       p2.classList.add("descriptionHide");
       p2.innerHTML = applicationLogic.getCurrentProject()[i].description;
       p.appendChild(p2);
+      let p3 = document.createElement("p");
+      p3.classList.add("taskDate");
+      p3.innerHTML = applicationLogic.getCurrentProject()[i].date;
+      p.appendChild(p3);
     }
   };
 
@@ -76,15 +80,9 @@ const domControl = (function () {
   };
 
   const addTask = () => {
-    let p = document.createElement("p");
-    p.classList.add("task");
-    p.innerHTML = applicationLogic.getTitle();
-    taskContainer.appendChild(p);
-    p.addEventListener("click", revealDescription);
-    let p2 = document.createElement("p");
-    p2.classList.add("descriptionHide");
-    p2.innerHTML = applicationLogic.getDescription();
-    p.appendChild(p2);
+    applicationLogic.addTask();
+    clearDisplay();
+    display();
     console.log(applicationLogic.myArrays);
   };
 
