@@ -82,6 +82,7 @@ const domControl = (function () {
   const switchProjects = (e) => {
     clearDisplay();
     applicationLogic.changeCurrentProject(e.target.id);
+    document.querySelector(".mainTitle").innerHTML = e.target.innerHTML;
     display();
   };
 
