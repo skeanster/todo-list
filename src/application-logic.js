@@ -42,7 +42,17 @@ export const applicationLogic = (function () {
     return document.querySelector("#description").value;
   };
   const getDate = () => {
-    return document.querySelector(".input-due-date").value;
+    return document.querySelector(".inputDueDate").value;
+  };
+
+  const getTitleEdit = () => {
+    return document.querySelector("#titleEdit").value;
+  };
+  const getDescriptionEdit = () => {
+    return document.querySelector("#descriptionEdit").value;
+  };
+  const getDateEdit = () => {
+    return document.querySelector(".inputDueDateEdit").value;
   };
 
   let Task = class {
@@ -65,6 +75,14 @@ export const applicationLogic = (function () {
 
   const deleteTask = (index) => {
     currentProject.splice(index, 1);
+  };
+
+  const editTask = (index) => {
+    currentProject.splice(
+      index,
+      1,
+      new Task(getTitleEdit(), getDescriptionEdit(), getDateEdit())
+    );
   };
 
   const changeCurrentProject = (num) => {
@@ -100,5 +118,6 @@ export const applicationLogic = (function () {
     addNewProjectName,
     addTask,
     deleteTask,
+    editTask,
   };
 })();

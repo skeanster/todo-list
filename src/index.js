@@ -43,6 +43,7 @@ const domControl = (function () {
   const menuConainer = document.querySelector(".menuContainer");
   const defualtProject = document.querySelector(".defaultProject");
   let num = 0;
+  let index = 0;
 
   const initialDisplay = () => {
     for (let i = 0; i < applicationLogic.myArrays.length; i++) {
@@ -77,6 +78,12 @@ const domControl = (function () {
       p4.innerHTML = "&times";
       p.appendChild(p4);
       p4.addEventListener("click", deleteTask);
+      let p5 = document.createElement("p");
+      p5.classList.add("descriptionHide");
+      p5.innerHTML = "EDIT";
+      p.appendChild(p5);
+      p5.addEventListener("click", editTaskFormReveal);
+      p5.addEventListener("click", editTaskStoreIndex);
     }
   };
 
@@ -94,6 +101,21 @@ const domControl = (function () {
 
   const deleteTask = (e) => {
     applicationLogic.deleteTask(e.target.parentNode.id);
+    clearDisplay();
+    display();
+    console.log(applicationLogic.myArrays);
+  };
+
+  const editTaskFormReveal = (e) => {
+    document.querySelector(".formContainerEdit").classList.toggle("formHide");
+  };
+
+  const editTaskStoreIndex = (e) => {
+    index = e.target.parentNode.id;
+  };
+
+  const editTask = () => {
+    applicationLogic.editTask(index);
     clearDisplay();
     display();
     console.log(applicationLogic.myArrays);
@@ -124,16 +146,19 @@ const domControl = (function () {
 
   const revealDescription = (e) => {
     e.target.children[0].classList.toggle("descriptionHide");
+    e.target.children[3].classList.toggle("descriptionHide");
   };
 
   return {
     display,
     addTask,
+    editTask,
     addProject,
     switchProjects,
     defualtProject,
     initialDisplay,
     revealDescription,
+    editTaskStoreIndex,
   };
 })();
 
@@ -141,6 +166,20 @@ const taskAddReset = (function () {
   const submit = document.querySelector("#taskSubmit");
   const formContainer = document.querySelector(".formContainer");
   submit.addEventListener("click", domControl.addTask);
+  const hide = () => {
+    formContainer.classList.toggle("formHide");
+    document.querySelector("#title").value = "";
+    document.querySelector("#description").value = "";
+  };
+  submit.addEventListener("click", hide);
+
+  return {};
+})();
+
+const taskEditReset = (function () {
+  const submit = document.querySelector("#taskSubmitEdit");
+  const formContainer = document.querySelector(".formContainerEdit");
+  submit.addEventListener("click", domControl.editTask);
   const hide = () => {
     formContainer.classList.toggle("formHide");
     document.querySelector("#title").value = "";
