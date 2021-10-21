@@ -53,6 +53,9 @@ const domControl = (function () {
     for (let i = 0; i < applicationLogic.myArrays.length; i++) {
       let h3 = document.createElement("h3");
       h3.classList.add("projectTitle");
+      if (i == 0) {
+        h3.classList.toggle("currentProject");
+      }
       h3.id = num;
       num++;
       h3.innerHTML = applicationLogic.myArrays[i][0].name;
@@ -93,7 +96,8 @@ const domControl = (function () {
       p4.addEventListener("click", deleteTask);
       let p5 = document.createElement("p");
       p5.classList.add("descriptionHide", "editButton");
-      p5.innerHTML = "EDIT";
+      p5.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 13.45l2-2.023v4.573h-2v-2.55zm-11-5.45h1.743l1.978-2h-3.721v2zm1.361 3.216l11.103-11.216 4.536 4.534-11.102 11.218-5.898 1.248 1.361-5.784zm1.306 3.176l2.23-.472 9.281-9.378-1.707-1.707-9.293 9.388-.511 2.169zm3.333 7.608v-2h-6v2h6zm-8-2h-3v-2h-2v4h5v-2zm13-2v2h-3v2h5v-4h-2zm-18-2h2v-4h-2v4zm2-6v-2h3v-2h-5v4h2z"/></svg>';
       p.appendChild(p5);
       p5.addEventListener("click", editTaskFormReveal);
       p5.addEventListener("click", editTaskStoreIndex);
@@ -154,6 +158,10 @@ const domControl = (function () {
 
   const switchProjects = (e) => {
     clearDisplay();
+    document
+      .querySelector(".currentProject")
+      .classList.toggle("currentProject");
+    e.target.classList.toggle("currentProject");
     applicationLogic.changeCurrentProject(e.target.id);
     document.querySelector(".mainTitle").innerHTML = e.target.innerHTML;
     if (document.querySelector(".mainTitle").innerHTML == "Home") {

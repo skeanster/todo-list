@@ -35,9 +35,18 @@ header {
   }
 }
 
+.menuTitle {
+  font-weight: 500;
+}
+
 .menuButton {
   cursor: pointer;
   width: 40px;
+}
+
+.menuButton:hover {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.199);
 }
 
 .menuHide {
@@ -47,15 +56,34 @@ header {
 .addButton {
   color: #212529;
   cursor: pointer;
-  border: 2px solid #212529;
+  border: 1px solid #212529;
   padding: 5px;
   border-radius: 10px;
+  font-weight: 400;
+}
+
+.addButton:hover {
+  background-color: #212529;
+  border: 1px solid #db4c3f;
+  color: #db4c3f;
 }
 
 .menuContainer {
   background-color: #f7f7f7;
   height: calc(100vh - 45px);
   padding: 40px;
+}
+
+@media only screen and (max-width: 750px) {
+  .menuContainer {
+    position: absolute;
+    z-index: 6;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  }
 }
 
 .menuHeader {
@@ -66,17 +94,34 @@ header {
 
 .projectTitle {
   cursor: pointer;
+  font-weight: 300;
+  padding: 5px;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.currentProject {
+  border-radius: 10px;
+  background: #ececec;
 }
 
 .addProjectButton {
-  border: 2px solid #db4c3f;
   border-radius: 10px;
-  height: 33.5px;
-  width: 33.5px;
   text-align: center;
   cursor: pointer;
   margin: 0;
   margin-left: 5px;
+  font-weight: 400;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.addProjectButton:hover {
+  background: #db4c3fe3;
 }
 
 .newProjectContainer {
@@ -131,6 +176,7 @@ header {
 .mainTitle {
   padding-left: 10%;
   position: relative;
+  font-weight: 400;
 }
 
 .deleteProject {
@@ -139,6 +185,8 @@ header {
   top: 0px;
   z-index: 5;
   cursor: pointer;
+  font-weight: 300;
+  color: #db4c3f;
 }
 
 .taskContainer {
@@ -190,6 +238,15 @@ header {
   bottom: 20px;
   cursor: pointer;
   border-radius: 50%;
+}
+
+.floatingTaskAdd:hover {
+  transform: scale(1.05);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 .description {
