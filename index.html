@@ -14,7 +14,7 @@
     </header>
     <main>
       <div class="formContainer formHide">
-        <form name="bookForm">
+        <form name="taskForm">
           <label for="title">Title:</label><br />
           <input type="text" id="title" name="title" value="" required /><br />
           <label for="description">Description:</label><br />
@@ -25,9 +25,26 @@
             value=""
             required
           /><br />
-          <input type="date" class="input-due-date" data-input-due-date="" /></br>
+          <input type="date" class="inputDueDate" data-input-due-date="" /></br>
           <input type="button" value="Submit" id="taskSubmit" />
         </form>
+      </div>
+      <div class="formContainerEdit formHide">
+        <form name="taskFormEdit">
+          <label for="titleEdit">Title:</label><br />
+          <input type="text" id="titleEdit" name="titleEdit" value="" required /><br />
+          <label for="descriptionEdit">Description:</label><br />
+          <input
+            type="text"
+            id="descriptionEdit"
+            name="descriptionEdit"
+            value=""
+            required
+          /><br />
+          <input type="date" class="inputDueDateEdit" data-input-due-date="" /></br>
+          <input type="button" value="SubmitEdit" id="taskSubmitEdit" />
+        </form>
+      </div>
       </div>
       <div class="newProjectContainer formHide">
         <form name="projectForm">
