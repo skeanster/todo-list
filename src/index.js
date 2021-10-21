@@ -79,7 +79,7 @@ const domControl = (function () {
       taskContainer.appendChild(p);
       p.addEventListener("click", revealDescription);
       let p2 = document.createElement("p");
-      p2.classList.add("descriptionHide");
+      p2.classList.add("descriptionHide", "description");
       p2.innerHTML = applicationLogic.getCurrentProject()[i].description;
       p.appendChild(p2);
       let p3 = document.createElement("p");
@@ -92,7 +92,7 @@ const domControl = (function () {
       p.appendChild(p4);
       p4.addEventListener("click", deleteTask);
       let p5 = document.createElement("p");
-      p5.classList.add("descriptionHide");
+      p5.classList.add("descriptionHide", "editButton");
       p5.innerHTML = "EDIT";
       p.appendChild(p5);
       p5.addEventListener("click", editTaskFormReveal);

@@ -12,6 +12,10 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+p {
+  margin: 0;
+}
+
 header {
   background: #db4c3f;
   color: white;
@@ -121,11 +125,11 @@ header {
 .projectContainer {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .mainTitle {
   padding-left: 10%;
-  width: 70vw;
   position: relative;
 }
 
@@ -143,22 +147,30 @@ header {
 }
 
 .task {
+  display: flex;
   cursor: pointer;
-  width: 70vw;
   position: relative;
   padding-left: 15%;
+  padding-right: 15%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid gainsboro;
+  margin: 5px;
+  align-items: flex-start;
+  margin: 15px;
+  margin-bottom: 0;
+  padding-bottom: 15px;
 }
 
 .taskDate {
   position: absolute;
   right: 0px;
-  top: -16px;
 }
 
 .completeMarker {
   position: absolute;
   left: calc(15% - 20px);
-  top: -16px;
   z-index: 5;
 }
 
@@ -178,4 +190,17 @@ header {
   bottom: 20px;
   cursor: pointer;
   border-radius: 50%;
+}
+
+.description {
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  padding-left: 0;
+}
+
+.editButton {
+  position: absolute;
+  left: calc(15% - 35px);
+  top: 20px;
 }
