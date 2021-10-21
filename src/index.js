@@ -35,6 +35,9 @@ const revealTaskAdd = (function () {
   const formContainer = document.querySelector(".formContainer");
   addBtn.addEventListener("click", hide);
 
+  const floatingAddButton = document.querySelector(".floatingTaskAdd");
+  floatingAddButton.addEventListener("click", hide);
+
   return {};
 })();
 

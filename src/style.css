@@ -13,6 +13,7 @@ body {
 
 header {
   background: red;
+  color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -160,4 +161,14 @@ header {
 
 .descriptionHide {
   display: none;
+}
+
+.floatingTaskAdd {
+  padding: 10px;
+  color: white;
+  position: absolute;
+  background: red;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
 }
