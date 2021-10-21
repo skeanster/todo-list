@@ -92,6 +92,14 @@ header {
   background: lavender;
 }
 
+.formContainerDelete {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: lavender;
+}
+
 .formHide {
   display: none;
 }
@@ -111,6 +119,15 @@ header {
 .mainTitle {
   padding-left: 10%;
   width: 70vw;
+  position: relative;
+}
+
+.deleteProject {
+  position: absolute;
+  left: calc(10% - 25px);
+  top: 0px;
+  z-index: 5;
+  cursor: pointer;
 }
 
 .taskContainer {

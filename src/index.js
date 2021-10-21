@@ -45,7 +45,8 @@ const domControl = (function () {
   let num = 0;
   let index = 0;
 
-  const initialDisplay = () => {
+  const projectTitleDisplay = () => {
+    num = 0;
     for (let i = 0; i < applicationLogic.myArrays.length; i++) {
       let h3 = document.createElement("h3");
       h3.classList.add("projectTitle");
@@ -55,6 +56,15 @@ const domControl = (function () {
       h3.addEventListener("click", switchProjects);
       menuConainer.appendChild(h3);
     }
+  };
+
+  const clearTitleDisplay = () => {
+    let projects = document.querySelectorAll(".projectTitle");
+    projects.forEach((x) => x.remove());
+  };
+
+  const openDelete = () => {
+    document.querySelector(".formContainerDelete").classList.toggle("formHide");
   };
 
   const display = () => {
@@ -96,14 +106,12 @@ const domControl = (function () {
     applicationLogic.addTask();
     clearDisplay();
     display();
-    console.log(applicationLogic.myArrays);
   };
 
   const deleteTask = (e) => {
     applicationLogic.deleteTask(e.target.parentNode.id);
     clearDisplay();
     display();
-    console.log(applicationLogic.myArrays);
   };
 
   const editTaskFormReveal = (e) => {
@@ -118,7 +126,6 @@ const domControl = (function () {
     applicationLogic.editTask(index);
     clearDisplay();
     display();
-    console.log(applicationLogic.myArrays);
   };
 
   const addProject = () => {
@@ -134,6 +141,11 @@ const domControl = (function () {
     document.querySelector(".mainTitle").innerHTML =
       applicationLogic.getCurrentProject()[0].name;
     h3.addEventListener("click", switchProjects);
+    let div = document.createElement("div");
+    div.classList.add("deleteProject");
+    div.innerHTML = "&times";
+    document.querySelector(".mainTitle").appendChild(div);
+    div.addEventListener("click", openDelete);
     num++;
   };
 
@@ -141,6 +153,24 @@ const domControl = (function () {
     clearDisplay();
     applicationLogic.changeCurrentProject(e.target.id);
     document.querySelector(".mainTitle").innerHTML = e.target.innerHTML;
+    if (document.querySelector(".mainTitle").innerHTML == "Home") {
+    } else {
+      let div = document.createElement("div");
+      div.classList.add("deleteProject");
+      div.innerHTML = "&times";
+      document.querySelector(".mainTitle").appendChild(div);
+      div.addEventListener("click", openDelete);
+    }
+    display();
+  };
+
+  const deleteProject = () => {
+    applicationLogic.deleteProject();
+    clearDisplay();
+    clearTitleDisplay();
+    applicationLogic.changeCurrentProject(0);
+    document.querySelector(".mainTitle").innerHTML = "Home";
+    projectTitleDisplay();
     display();
   };
 
@@ -156,9 +186,11 @@ const domControl = (function () {
     addProject,
     switchProjects,
     defualtProject,
-    initialDisplay,
+    projectTitleDisplay,
     revealDescription,
     editTaskStoreIndex,
+    clearTitleDisplay,
+    deleteProject,
   };
 })();
 
@@ -203,5 +235,17 @@ const projectAddReset = (function () {
   return {};
 })();
 
-domControl.initialDisplay();
+const projectDelete = (function () {
+  const submit = document.querySelector("#deleteSubmit");
+  const deleteProjectContainer = document.querySelector(".formContainerDelete");
+  submit.addEventListener("click", domControl.deleteProject);
+  const hide = () => {
+    deleteProjectContainer.classList.toggle("formHide");
+  };
+  submit.addEventListener("click", hide);
+
+  return {};
+})();
+
+domControl.projectTitleDisplay();
 domControl.display();

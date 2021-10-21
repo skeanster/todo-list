@@ -102,8 +102,12 @@ export const applicationLogic = (function () {
   };
 
   const addNewProjectName = () => {
-    console.log(getCurrentProject());
     getCurrentProject().push(new Project(getNewProjectName()));
+  };
+
+  const deleteProject = () => {
+    let location = myArrays.indexOf(currentProject);
+    myArrays.splice(location, 1);
   };
 
   return {
@@ -119,5 +123,6 @@ export const applicationLogic = (function () {
     addTask,
     deleteTask,
     editTask,
+    deleteProject,
   };
 })();
