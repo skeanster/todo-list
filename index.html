@@ -13,16 +13,16 @@
       <div class="addButton">New Task</div>
     </header>
     <main>
+      <div class="overlay"></div>
       <div class="formContainer formHide">
         <form name="taskForm">
-          <label for="title">Title:</label><br />
-          <input type="text" id="title" name="title" value="" required /><br />
-          <label for="description">Description:</label><br />
+          <input type="text" id="title" name="title" value="" placeholder="Task Title:"required /><br />
           <input
             type="text"
             id="description"
             name="description"
             value=""
+            placeholder="Description"
             required
           /><br />
           <input type="date" class="inputDueDate" data-input-due-date="" /></br>
@@ -42,7 +42,7 @@
             required
           /><br />
           <input type="date" class="inputDueDateEdit" data-input-due-date="" /></br>
-          <input type="button" value="SubmitEdit" id="taskSubmitEdit" />
+          <input type="button" value="Submit Edit" id="taskSubmitEdit" />
         </form>
       </div>
       <div>
@@ -54,12 +54,12 @@
       </div>
       <div class="newProjectContainer formHide">
         <form name="projectForm">
-          <label for="projectName">Project Name:</label><br />
           <input
             type="text"
             id="projectName"
             name="projectName"
             value=""
+            placeholder="Name Your Project:"
             required
           /><br />
           <input type="button" value="Submit" id="projectSubmit" />
