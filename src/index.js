@@ -11,6 +11,7 @@ const overlayHide = (function () {
     document.querySelector(".formContainer").classList.add("formHide");
     document.querySelector(".formContainerEdit").classList.add("formHide");
     document.querySelector(".newProjectContainer").classList.add("formHide");
+    document.querySelector(".formContainerDelete").classList.add("formHide");
     overlay.classList.toggle("activeOverlay");
   };
 
@@ -91,6 +92,7 @@ const domControl = (function () {
 
   const openDelete = () => {
     document.querySelector(".formContainerDelete").classList.toggle("formHide");
+    overlayHide.hide();
   };
 
   const display = () => {
