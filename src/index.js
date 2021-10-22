@@ -207,7 +207,6 @@ const domControl = (function () {
   };
 
   const revealDescription = (e) => {
-    console.log(e.target);
     e.target.children[0].classList.toggle("descriptionHide");
     e.target.children[3].classList.toggle("descriptionHide");
   };
