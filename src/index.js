@@ -227,9 +227,17 @@ const domControl = (function () {
 })();
 
 const taskAddReset = (function () {
+  const validateForm = () => {
+    let x = document.querySelector("#title").value;
+    if (x == "") {
+      alert("Please give your task a name");
+    } else {
+      domControl.addTask();
+    }
+  };
   const submit = document.querySelector("#taskSubmit");
   const formContainer = document.querySelector(".formContainer");
-  submit.addEventListener("click", domControl.addTask);
+  submit.addEventListener("click", validateForm);
   const hide = () => {
     formContainer.classList.toggle("formHide");
     document.querySelector("#title").value = "";
@@ -242,9 +250,17 @@ const taskAddReset = (function () {
 })();
 
 const taskEditReset = (function () {
+  const validateForm = () => {
+    let x = document.querySelector("#titleEdit").value;
+    if (x == "") {
+      alert("Please give your task a name");
+    } else {
+      domControl.editTask();
+    }
+  };
   const submit = document.querySelector("#taskSubmitEdit");
   const formContainer = document.querySelector(".formContainerEdit");
-  submit.addEventListener("click", domControl.editTask);
+  submit.addEventListener("click", validateForm);
   const hide = () => {
     formContainer.classList.toggle("formHide");
     document.querySelector("#title").value = "";
@@ -257,9 +273,17 @@ const taskEditReset = (function () {
 })();
 
 const projectAddReset = (function () {
+  const validateForm = () => {
+    let x = document.querySelector("#projectName").value;
+    if (x == "") {
+      alert("Please give your project a name");
+    } else {
+      domControl.addProject();
+    }
+  };
   const submit = document.querySelector("#projectSubmit");
   const newProjectContainer = document.querySelector(".newProjectContainer");
-  submit.addEventListener("click", domControl.addProject);
+  submit.addEventListener("click", validateForm);
   const hide = () => {
     newProjectContainer.classList.toggle("formHide");
     document.querySelector("#projectName").value = "";
