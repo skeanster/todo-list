@@ -7,6 +7,7 @@ export const storageLogic = (function () {
       {
         title: "First Task: Add a task!",
         description: "Click the button in the upper or lower right!",
+        date: "2021-10-22",
       },
     ],
   ];
