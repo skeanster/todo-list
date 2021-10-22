@@ -159,8 +159,11 @@ const domControl = (function () {
 
   const addProject = () => {
     clearDisplay();
+    document
+      .querySelector(".currentProject")
+      .classList.toggle("currentProject");
     let h3 = document.createElement("h3");
-    h3.classList.add("projectTitle");
+    h3.classList.add("projectTitle", "currentProject");
     h3.id = num;
     h3.innerHTML = applicationLogic.getNewProjectName();
     menuConainer.appendChild(h3);

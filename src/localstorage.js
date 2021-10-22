@@ -4,8 +4,10 @@ export const storageLogic = (function () {
   const defaultData = [
     [
       { name: "Home" },
-      { title: "task1", description: "description1", date: "2021-10-27" },
-      { title: "task2", description: "description2", date: "2021-10-27" },
+      {
+        title: "First Task: Add a task!",
+        description: "Click the button in the upper or lower right!",
+      },
     ],
   ];
 

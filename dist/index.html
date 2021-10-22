@@ -48,13 +48,15 @@
       </div>
       <div>
         <div class="formContainerDelete formHide">
-          <label for="deleteSubmit">Are you sure?</label><br />
-          <input type="button" value="Delete Forever" id="deleteSubmit">
-        </form>
+          <form>
+            <label for="deleteSubmit">Are you sure?</label><br />
+            <input type="button" value="Delete Forever" id="deleteSubmit">
+          </form>
+        </div>
       </div>
       </div>
       <div class="newProjectContainer formHide">
-        <form name="projectForm">
+        <form name="projectForm" onSubmit="return false">
           <input
             type="text"
             id="projectName"
@@ -63,7 +65,7 @@
             placeholder="Name Your Project:"
             required
           /><br />
-          <input type="button" value="Submit" id="projectSubmit" />
+          <input type="button" value="Submit" id="projectSubmit"/>
         </form>
       </div>
       <div class="mainContainer">
