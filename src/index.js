@@ -1,6 +1,7 @@
 import "./style.css";
 import { compareAsc, format } from "date-fns";
 import { applicationLogic } from "./application-logic";
+import { storageLogic } from "./localstorage";
 
 const overlayHide = (function () {
   const hide = () => {

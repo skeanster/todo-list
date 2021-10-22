@@ -1,37 +1,11 @@
 import "./style.css";
 import { compareAsc, format } from "date-fns";
+import { storageLogic } from "./localstorage";
 
 export const applicationLogic = (function () {
   const submit = document.querySelector("#taskSubmit");
 
-  let myArrays = [
-    [
-      { name: "Home" },
-      { title: "task1", description: "description1", date: "2021-10-27" },
-      { title: "task2", description: "description2", date: "2021-10-27" },
-    ],
-
-    [
-      { name: "New Project 1" },
-      { title: "1task1", description: "description1", date: "2021-10-27" },
-      { title: "2task", description: "description2", date: "2021-10-27" },
-    ],
-    [
-      { name: "New Project 2" },
-      { title: "1task2", description: "description1", date: "2021-10-27" },
-      { title: "2task", description: "description2", date: "2021-10-27" },
-    ],
-    [
-      { name: "New Project 3" },
-      { title: "1task3", description: "description1", date: "2021-10-27" },
-      { title: "2task", description: "description2", date: "2021-10-27" },
-    ],
-    [
-      { name: "New Project 4" },
-      { title: "1task4", description: "description1", date: "2021-10-27" },
-      { title: "2task", description: "description2", date: "2021-10-27" },
-    ],
-  ];
+  let myArrays = storageLogic.firstTimeUser();
 
   let currentProject = myArrays[0];
 
@@ -71,10 +45,12 @@ export const applicationLogic = (function () {
 
   const addTask = () => {
     currentProject.push(new Task(getTitle(), getDescription(), getDate()));
+    storageLogic.updateLocalStorage();
   };
 
   const deleteTask = (index) => {
     currentProject.splice(index, 1);
+    storageLogic.updateLocalStorage();
   };
 
   const editTask = (index) => {
@@ -83,6 +59,7 @@ export const applicationLogic = (function () {
       1,
       new Task(getTitleEdit(), getDescriptionEdit(), getDateEdit())
     );
+    storageLogic.updateLocalStorage();
   };
 
   const changeCurrentProject = (num) => {
@@ -103,11 +80,13 @@ export const applicationLogic = (function () {
 
   const addNewProjectName = () => {
     getCurrentProject().push(new Project(getNewProjectName()));
+    storageLogic.updateLocalStorage();
   };
 
   const deleteProject = () => {
     let location = myArrays.indexOf(currentProject);
     myArrays.splice(location, 1);
+    storageLogic.updateLocalStorage();
   };
 
   return {
