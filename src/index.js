@@ -2,6 +2,23 @@ import "./style.css";
 import { compareAsc, format } from "date-fns";
 import { applicationLogic } from "./application-logic";
 
+const overlayHide = (function () {
+  const hide = () => {
+    overlay.classList.toggle("activeOverlay");
+  };
+
+  const hideAnyModal = () => {
+    document.querySelector(".formContainer").classList.add("formHide");
+    document.querySelector(".formContainerEdit").classList.add("formHide");
+    document.querySelector(".newProjectContainer").classList.add("formHide");
+    overlay.classList.toggle("activeOverlay");
+  };
+
+  const overlay = document.querySelector(".overlay");
+  overlay.addEventListener("click", hideAnyModal);
+  return { hide };
+})();
+
 const menuHide = (function () {
   const hide = () => {
     menuContainer.classList.toggle("menuHide");
@@ -17,6 +34,7 @@ const menuHide = (function () {
 const revealProjectAdd = (function () {
   const hide = () => {
     newProjectContainer.classList.toggle("formHide");
+    overlayHide.hide();
   };
 
   const addProjectBtn = document.querySelector(".addProjectButton");
@@ -29,6 +47,7 @@ const revealProjectAdd = (function () {
 const revealTaskAdd = (function () {
   const hide = () => {
     formContainer.classList.toggle("formHide");
+    overlayHide.hide();
   };
 
   const addBtn = document.querySelector(".addButton");
@@ -42,6 +61,7 @@ const revealTaskAdd = (function () {
 })();
 
 const domControl = (function () {
+  const overlay = document.querySelector(".overlay");
   const taskContainer = document.querySelector(".taskContainer");
   const menuConainer = document.querySelector(".menuContainer");
   const defualtProject = document.querySelector(".defaultProject");
@@ -123,6 +143,7 @@ const domControl = (function () {
 
   const editTaskFormReveal = (e) => {
     document.querySelector(".formContainerEdit").classList.toggle("formHide");
+    overlayHide.hide();
   };
 
   const editTaskStoreIndex = (e) => {
@@ -186,6 +207,7 @@ const domControl = (function () {
   };
 
   const revealDescription = (e) => {
+    console.log(e.target);
     e.target.children[0].classList.toggle("descriptionHide");
     e.target.children[3].classList.toggle("descriptionHide");
   };
@@ -213,6 +235,7 @@ const taskAddReset = (function () {
     formContainer.classList.toggle("formHide");
     document.querySelector("#title").value = "";
     document.querySelector("#description").value = "";
+    overlayHide.hide();
   };
   submit.addEventListener("click", hide);
 
@@ -227,6 +250,7 @@ const taskEditReset = (function () {
     formContainer.classList.toggle("formHide");
     document.querySelector("#title").value = "";
     document.querySelector("#description").value = "";
+    overlayHide.hide();
   };
   submit.addEventListener("click", hide);
 
@@ -240,6 +264,7 @@ const projectAddReset = (function () {
   const hide = () => {
     newProjectContainer.classList.toggle("formHide");
     document.querySelector("#projectName").value = "";
+    overlayHide.hide();
   };
   submit.addEventListener("click", hide);
 
@@ -252,6 +277,7 @@ const projectDelete = (function () {
   submit.addEventListener("click", domControl.deleteProject);
   const hide = () => {
     deleteProjectContainer.classList.toggle("formHide");
+    overlayHide.hide();
   };
   submit.addEventListener("click", hide);
 

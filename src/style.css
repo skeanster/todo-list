@@ -4,6 +4,7 @@
 
 html,
 body {
+  min-width: 375px;
   background: white;
   color: #212529;
   margin: 0px;
@@ -16,8 +17,13 @@ p {
   margin: 0;
 }
 
+input {
+  margin: 5px;
+  padding: 5px;
+}
+
 header {
-  background: #db4c3f;
+  background: #ea584b;
   color: white;
   display: flex;
   flex-direction: row;
@@ -33,6 +39,10 @@ header {
     padding-left: 8px;
     padding-right: 8px;
   }
+}
+
+input {
+  border: none;
 }
 
 .menuTitle {
@@ -64,14 +74,15 @@ header {
 
 .addButton:hover {
   background-color: #212529;
-  border: 1px solid #db4c3f;
-  color: #db4c3f;
+  border: 1px solid #ea584b;
+  color: #ea584b;
 }
 
 .menuContainer {
   background-color: #f7f7f7;
   height: calc(100vh - 45px);
   padding: 40px;
+  animation: 0.3s ease 0s 1 normal none running fadeIn;
 }
 
 @media only screen and (max-width: 750px) {
@@ -99,11 +110,16 @@ header {
   padding-left: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.projectTitle:hover {
+  background: #e2e1e1;
 }
 
 .currentProject {
   border-radius: 10px;
-  background: #ececec;
+  background: #e2e1e1;
 }
 
 .addProjectButton {
@@ -121,7 +137,7 @@ header {
 }
 
 .addProjectButton:hover {
-  background: #db4c3fe3;
+  background: #ea584b;
 }
 
 .newProjectContainer {
@@ -129,7 +145,15 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: lavender;
+  background: white;
+  z-index: 15;
+  width: 90%;
+  max-width: 515px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  animation: 0.3s ease 0s 1 normal none running fadeIn;
 }
 
 .formContainer {
@@ -137,7 +161,15 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: lavender;
+  background: white;
+  z-index: 15;
+  width: 90%;
+  max-width: 515px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  animation: 0.3s ease 0s 1 normal none running fadeIn;
 }
 
 .formContainerEdit {
@@ -145,7 +177,15 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: lavender;
+  background: white;
+  z-index: 15;
+  width: 90%;
+  max-width: 515px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  animation: 0.3s ease 0s 1 normal none running fadeIn;
 }
 
 .formContainerDelete {
@@ -153,11 +193,20 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: lavender;
+  background: white;
+  z-index: 15;
+  width: 90%;
+  max-width: 515px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  animation: 0.3s ease 0s 1 normal none running fadeIn;
 }
 
 .formHide {
   display: none;
+  animation: 0.3s ease 0s 1 normal none running fadeIn;
 }
 
 .mainContainer {
@@ -186,20 +235,21 @@ header {
   z-index: 5;
   cursor: pointer;
   font-weight: 300;
-  color: #db4c3f;
+  color: #ea584b;
 }
 
 .taskContainer {
   display: flex;
   flex-direction: column;
+  margin: 30px;
 }
 
 .task {
   display: flex;
   cursor: pointer;
   position: relative;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-right: 85px;
+  padding-left: 20px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -218,11 +268,11 @@ header {
 
 .completeMarker {
   position: absolute;
-  left: calc(15% - 20px);
+  left: -13px;
+  top: -9px;
   z-index: 5;
-}
-
-.taskDescription {
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .descriptionHide {
@@ -233,7 +283,7 @@ header {
   padding: 10px;
   color: white;
   position: absolute;
-  background: #db4c3f;
+  background: #ea584b;
   right: 20px;
   bottom: 20px;
   cursor: pointer;
@@ -251,13 +301,67 @@ header {
 
 .description {
   width: 100%;
-  height: 100px;
+  min-height: 100px;
   padding: 15px;
   padding-left: 0;
 }
 
 .editButton {
   position: absolute;
-  left: calc(15% - 35px);
-  top: 20px;
+  top: 30px;
+  left: -15px;
+}
+
+.overlay {
+  z-index: 9;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.activeOverlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#description {
+  width: 100%;
+  min-height: 50px;
+}
+
+#projectSubmit {
+  background: #ea584b;
+  color: white;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#taskSubmit {
+  background: #ea584b;
+  color: white;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#taskSubmitEdit {
+  background: #ea584b;
+  color: white;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
 }
