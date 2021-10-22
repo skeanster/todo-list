@@ -1,3 +1,5 @@
+/* CSS styles being exported to index.js for webpack */
+
 * {
   box-sizing: border-box;
 }
