@@ -1,35 +1,23 @@
-import "./style.css";
-import { compareAsc, format } from "date-fns";
-import { storageLogic } from "./localstorage";
+import './style.css';
+import { storageLogic } from './localstorage';
 
 export const applicationLogic = (function () {
-  const submit = document.querySelector("#taskSubmit");
+  const submit = document.querySelector('#taskSubmit');
 
-  let myArrays = storageLogic.firstTimeUser();
+  const myArrays = storageLogic.firstTimeUser();
 
   let currentProject = myArrays[0];
 
-  const getTitle = () => {
-    return document.querySelector("#title").value;
-  };
-  const getDescription = () => {
-    return document.querySelector("#description").value;
-  };
-  const getDate = () => {
-    return document.querySelector(".inputDueDate").value;
-  };
+  const getTitle = () => document.querySelector('#title').value;
+  const getDescription = () => document.querySelector('#description').value;
+  const getDate = () => document.querySelector('.inputDueDate').value;
 
-  const getTitleEdit = () => {
-    return document.querySelector("#titleEdit").value;
-  };
-  const getDescriptionEdit = () => {
-    return document.querySelector("#descriptionEdit").value;
-  };
-  const getDateEdit = () => {
-    return document.querySelector(".inputDueDateEdit").value;
-  };
+  const getTitleEdit = () => document.querySelector('#titleEdit').value;
+  const getDescriptionEdit = () =>
+    document.querySelector('#descriptionEdit').value;
+  const getDateEdit = () => document.querySelector('.inputDueDateEdit').value;
 
-  let Task = class {
+  const Task = class {
     constructor(title, description, date) {
       this.title = title;
       this.description = description;
@@ -37,7 +25,7 @@ export const applicationLogic = (function () {
     }
   };
 
-  let Project = class {
+  const Project = class {
     constructor(name) {
       this.name = name;
     }
@@ -66,13 +54,9 @@ export const applicationLogic = (function () {
     currentProject = myArrays[num];
   };
 
-  const getCurrentProject = () => {
-    return currentProject;
-  };
+  const getCurrentProject = () => currentProject;
 
-  const getNewProjectName = () => {
-    return document.querySelector("#projectName").value;
-  };
+  const getNewProjectName = () => document.querySelector('#projectName').value;
 
   const addNewProject = () => {
     myArrays.push(new Array());
@@ -84,7 +68,7 @@ export const applicationLogic = (function () {
   };
 
   const deleteProject = () => {
-    let location = myArrays.indexOf(currentProject);
+    const location = myArrays.indexOf(currentProject);
     myArrays.splice(location, 1);
     storageLogic.updateLocalStorage();
   };
