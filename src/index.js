@@ -1,3 +1,8 @@
+/* eslint-disable func-names */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-alert */
 import './style.css';
 import { applicationLogic } from './application-logic';
 
@@ -73,7 +78,7 @@ const domControl = (function () {
     for (let i = 0; i < applicationLogic.myArrays.length; i++) {
       const h3 = document.createElement('h3');
       h3.classList.add('projectTitle');
-      if (i == 0) {
+      if (i === 0) {
         h3.classList.toggle('currentProject');
       }
       h3.id = num;
@@ -140,7 +145,7 @@ const domControl = (function () {
     display();
   };
 
-  const editTaskFormReveal = (e) => {
+  const editTaskFormReveal = () => {
     document.querySelector('.formContainerEdit').classList.toggle('formHide');
     overlayHide.hide();
   };
@@ -187,7 +192,7 @@ const domControl = (function () {
     e.target.classList.toggle('currentProject');
     applicationLogic.changeCurrentProject(e.target.id);
     document.querySelector('.mainTitle').innerHTML = e.target.innerHTML;
-    if (document.querySelector('.mainTitle').innerHTML == 'Home') {
+    if (document.querySelector('.mainTitle').innerHTML === 'Home') {
     } else {
       const div = document.createElement('div');
       div.classList.add('deleteProject');
@@ -231,7 +236,7 @@ const domControl = (function () {
 const taskAddReset = (function () {
   const validateForm = () => {
     const x = document.querySelector('#title').value;
-    if (x == '') {
+    if (x === '') {
       alert('Please give your task a name');
     } else {
       domControl.addTask();
@@ -254,7 +259,7 @@ const taskAddReset = (function () {
 const taskEditReset = (function () {
   const validateForm = () => {
     const x = document.querySelector('#titleEdit').value;
-    if (x == '') {
+    if (x === '') {
       alert('Please give your task a name');
     } else {
       domControl.editTask();
@@ -277,7 +282,7 @@ const taskEditReset = (function () {
 const projectAddReset = (function () {
   const validateForm = () => {
     const x = document.querySelector('#projectName').value;
-    if (x == '') {
+    if (x === '') {
       alert('Please give your project a name');
     } else {
       domControl.addProject();

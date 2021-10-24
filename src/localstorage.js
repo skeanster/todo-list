@@ -1,5 +1,7 @@
+// eslint-disable-next-line import/no-cycle
 import { applicationLogic } from './application-logic';
 
+// eslint-disable-next-line import/prefer-default-export
 export const storageLogic = (function () {
   const defaultData = [
     [

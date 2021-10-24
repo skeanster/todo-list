@@ -1,9 +1,10 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable import/no-cycle */
 import './style.css';
 import { storageLogic } from './localstorage';
 
+// eslint-disable-next-line import/prefer-default-export
 export const applicationLogic = (function () {
-  const submit = document.querySelector('#taskSubmit');
-
   const myArrays = storageLogic.firstTimeUser();
 
   let currentProject = myArrays[0];
@@ -59,7 +60,7 @@ export const applicationLogic = (function () {
   const getNewProjectName = () => document.querySelector('#projectName').value;
 
   const addNewProject = () => {
-    myArrays.push(new Array());
+    myArrays.push([]);
   };
 
   const addNewProjectName = () => {
