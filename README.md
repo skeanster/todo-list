@@ -1,4 +1,4 @@
-A good ole' To-Do List!
+# A good ole' To-Do List!
 
 A single page web application where you can toggle between various projects to see what tasks need to be done.
 
