@@ -1,5 +1,7 @@
 # A good ole' To-Do List!
 
+Check it out: [Live Demo](https://skeanster.github.io/todo-list/) :point_left:
+
 A single page web application where you can toggle between various projects to see what tasks need to be done.
 
 ## Features include:
